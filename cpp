@@ -55,6 +55,7 @@ void run(vector<string>strWord,char userInput)
 }*/
 
 void chartOutput() {
+    
     char word = 'b';
     word = toupper(word);
     char arr[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
@@ -64,25 +65,24 @@ void chartOutput() {
     for (auto it : arr) {
         if (it == word) {
             num += 1;
-            cout << it << "        " << num << endl;
+           cout<<it<<"                     "<<num<<endl ;
 
         } else {
-            cout << it << "        "
-                 << "0" << endl;
+            cout<<it<<"                     "<<"0"<<endl ;
         }
     }
 }
 
 int main()
 {  // getting input from user here and storing it in userInput variable*/
-
+    int a;//storing choiseof print chart
    bool matched=false;// int a;
     char userInput;//using this variable to store the user input
     vector<string>arr;
  
  /**************************Reading File ANd storing it in arr vector array**************************/
  
- 
+ char word[100];
  ifstream myFile;
     myFile.open("dictionary.txt");
     if(myFile.is_open())
@@ -96,7 +96,8 @@ int main()
         cout<<"Error";
    }
   /*********************************Aking And Storing USer Input()*****************************************************/
-  userInput=askFORinput(userInput);
+  userInput=tolower(askFORinput(userInput));
+  
   
   /*********************************************this will compare stored words with user input and store it in another vector array*******************************************************/     
     
@@ -106,10 +107,32 @@ int main()
 
   /****************read file and store in array************************/
   
-
+ cout<<"How would you like to display the result? "<<endl;
+     cout<<"1- Tabular form "<<endl;
+     cout<<"2- Bar chart "<<endl;
+     cout<<"Please enter either 1 or 2. You can end the program if you enter any other number :";
+     cin>>a;
+     cout<<endl;
+     cout<<"Rating"<<"           "<<"Frequency"<<endl;
+     cout<<"______"<<"           "<<"_________"<<endl;
  
-
- chartOutput();
+     
+        if(a==1)
+            {
+                
+              chartOutput();
+            }else if(a==2)
+           {
+                char arr[3]={'*','*','*'};
+                    for(auto it:arr)
+                    {
+                        cout<<it<<endl;
+                    }
+                
+           }else{
+                cout<<"enter proper Input only"<<endl;
+           }
+         
  
  /**************************************/ 
 
@@ -117,5 +140,8 @@ int main()
  
  
  }
+     
+    
+
      
     
