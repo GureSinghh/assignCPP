@@ -6,6 +6,7 @@ using namespace std;
 
 
 void Frequency(vector<char>indexOFmatched);//frequency chaker and outputer
+void barChart(int size);//fucnction that print output as barChart
 
 
 
@@ -29,6 +30,7 @@ char askFORinput(char input)
         vector<char>indexOFmatched;//this stores a total index values of qualified words
         vector<string>Strword;//this vactor array is used for storing total qualified words
         char userInput=usInput;
+          int totalwords=0;
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/       
             
             for(auto it:vec)
@@ -40,6 +42,7 @@ char askFORinput(char input)
                     {
                         if(userInput==word[i]&&word[i]==word[i+1])//if find duplicate of userInput turn matched true
                             {
+                                totalwords+=1;
                                indexOFmatched.insert(indexOFmatched.end(),word[0]);
                                Strword.insert(Strword.end(),word);
                               
@@ -47,14 +50,8 @@ char askFORinput(char input)
                     }
             
             }
-/*-------------------------- here we counts that how many total words are exist which are qualified acc. to user input------------------------------------------*/            
-            int totalwords=0;
-
-            for(auto it:indexOFmatched)
-                {   
-                    totalwords+=1;
-                }
-              
+/*--------------------------total qualified words that exist in list ------------------------------------------*/            
+          
             cout<<"The words that include "<<userInput<<userInput<<" are "<<totalwords<<endl;//printing out total words
 /*-----------------------------------here we are printing all qualified words as list ---------------------------------*/    
          
@@ -73,7 +70,7 @@ char askFORinput(char input)
  
 
 
-  /**************read file and store in array************************/
+ /*---------------------------------------function use to print Tabular form -------------------------------------------------------*/
 
 
 void Frequency(vector<char>indexOFmatched)//function user to calculate frequency with taks vector array which has all unique words index values that are matched with user input
@@ -153,15 +150,22 @@ if(a==1)//if user puts 1 as input this output will print
         if(a==2)
             {
             int size=totalwords[i];
-            for(int i=0;i<=size-1;i++)
-            {
-                cout<<"*";//if input from user is 2 it will print '*'instead of numbers
-            }
+           barChart(size);
             cout<<endl;
             }
         val++;
     }
 }
+}
+
+/*------------------------ function prints barChart----------------------------------------*/
+void barChart(int size)//fucnction that print output as barChart
+{
+ for(int i=0;i<=size-1;i++)
+            {
+                cout<<"*";//if input from user is 2 it will print '*'instead of numbers
+            }    
+    
 }
 
 
