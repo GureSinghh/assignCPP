@@ -142,9 +142,9 @@ if(a==1)//if user puts 1 as input this output will print
  {
      cout<<totalwords[i]<<endl ;//this print total number of words start from that charcters
  }
-     
+    val++ ;
  }
- val++;
+
 }else if(a==2)//if user puts 2 as input this output will get printed
 {
     for(int i=0;i<=25;i++)
